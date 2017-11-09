@@ -1,3 +1,3 @@
 # AsyncHttpClientDemo
 
-amazing
+use AsyncHttpClient to send Get HTTP request
