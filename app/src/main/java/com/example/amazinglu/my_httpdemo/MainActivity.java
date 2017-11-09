@@ -3,6 +3,7 @@ package com.example.amazinglu.my_httpdemo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 
 import java.io.IOException;
 
@@ -42,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
                 OkHttpClient client = new OkHttpClient();
                 try {
                     Response response = client.newCall(request).execute();
+                    TextView textView = (TextView) findViewById(R.id.text_view);
+                    textView.setText(response.body().string());
                     Log.i("guojing_demo", response.body().string());
                 } catch (IOException e) {
                     e.printStackTrace();
