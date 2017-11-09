@@ -32,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
         /**
          * use OkHttp to make synchronous HTTP request
          * the request cannot run in mian thread
+         * only the UI thread can touch the view
+         * in non UI thread, use runOnUiThread to touch the view
          * */
         new Thread(new Runnable() {
             @Override
