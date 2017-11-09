@@ -43,9 +43,17 @@ public class MainActivity extends AppCompatActivity {
                 OkHttpClient client = new OkHttpClient();
                 try {
                     Response response = client.newCall(request).execute();
-                    TextView textView = (TextView) findViewById(R.id.text_view);
-                    textView.setText(response.body().string());
-                    Log.i("guojing_demo", response.body().string());
+                    final String reponseString = response.body().string();
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            TextView textView = (TextView) findViewById(R.id.text_view);
+                            textView.setText(reponseString);
+                        }
+                    });
+//                    TextView textView = (TextView) findViewById(R.id.text_view);
+//                    textView.setText(response.body().string());
+//                    Log.i("guojing_demo", response.body().string());
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
